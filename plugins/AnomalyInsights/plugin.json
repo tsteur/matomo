@@ -1,0 +1,21 @@
+{
+  "name": "AnomalyInsights",
+  "description": "Experimental anomaly detection MVP that surfaces unusual visits/conversions windows.",
+  "version": "0.1.0",
+  "theme": false,
+  "require": {
+    "matomo": ">=5.0.0-b1,<6.0.0-b1"
+  },
+  "authors": [
+    {
+      "name": "Matomo",
+      "email": "",
+      "homepage": ""
+    }
+  ],
+  "license": "GPL v3+",
+  "keywords": [
+    "anomaly",
+    "insights"
+  ]
+}
