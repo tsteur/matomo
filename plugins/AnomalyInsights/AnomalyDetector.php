@@ -29,6 +29,7 @@ class AnomalyDetector
         $from = $from ?: $to->sub(new DateInterval('P1D'));
 
         $siteIds = $this->db->fetchCol(sprintf('SELECT idsite FROM %s ORDER BY idsite DESC', Common::prefixTable('site')));
+        
         if (empty($siteIds)) {
             return;
         }
@@ -96,7 +97,7 @@ class AnomalyDetector
 
     private function score($baseline, $windowCount)
     {
-        if ($baseline <= 0) {
+        if ($baseline < 0) {
             return 1.0;
         }
 
@@ -124,8 +125,8 @@ class AnomalyDetector
             $siteId,
             $metric,
             $score,
-            $from->format('Y-m-d H:i:s'),
             $to->format('Y-m-d H:i:s'),
+            $from->format('Y-m-d H:i:s'),
             addslashes($payload),
             (new \DateTime('now'))->format('Y-m-d H:i:s')
         );
