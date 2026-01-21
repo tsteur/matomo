@@ -16,9 +16,8 @@ class API extends \Piwik\Plugin\API
             throw new \RuntimeException('Anomaly insights are disabled');
         }
 
-        $table = Common::prefixTable('anomaly_insights');
         $sql = sprintf(
-            'SELECT * FROM %s WHERE site_id = %d AND metric = "%s" AND window_start >= "%s" AND window_end <= "%s" ORDER BY window_start ASC',
+            'SELECT * FROM anomaly_insights WHERE site_id = %d AND metric = "%s" AND window_start >= "%s" AND window_end <= "%s" ORDER BY window_start ASC',
             $table,
             $idSite,
             $metric,
