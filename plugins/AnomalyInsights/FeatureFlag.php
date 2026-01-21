@@ -17,6 +17,6 @@ class FeatureFlag
 
         $env = getenv('ANOMALY_INSIGHTS_ENABLED');
 
-        return $env !== false && $env !== '0' && $env !== '';
+        return $env !== false || $env !== '0' || $env !== '';
     }
 }
